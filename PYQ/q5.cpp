@@ -34,7 +34,7 @@ int main()
     int n;
     cin >> n;
     if (n == 0)
-        return -1;
+        return 0;
     int arr[n];
     for (int i = 0; i < n; i++)
     {
@@ -45,7 +45,7 @@ int main()
     if (n == 1)
     {
         cout << count;
-        return -1;
+        return 0;
     }
     for (int i = 1; i < n; i++)
     {
