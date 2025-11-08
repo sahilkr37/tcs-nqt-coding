@@ -41,3 +41,31 @@ The candidate has to write the code to accept two inputs separated by a new line
 Second input- Accept value for N(Positive integer number)
 The output  format for testing
 The output should be a positive integer number of print the message(if any) given in the problem statement.(Check the output in Example 1, Example 2).*/
+
+#include <bits/stdc++.h>
+using namespace std;
+int main()
+{
+    string curtains;
+    int L;
+    cin >> curtains;
+    cin >> L;
+
+    int countMax = INT_MIN;
+    int sum = 0;
+
+    for (int i = 0; i < curtains.size(); i++)
+    {
+        if (i % L == 0)
+        {
+            countMax = max(sum, countMax);
+            sum = 0;
+        }
+        if (curtains[i] == 'a')
+            sum += 1;
+    }
+    countMax = max(sum, countMax);
+
+    cout << countMax;
+    return 0;
+}
