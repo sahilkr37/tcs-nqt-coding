@@ -21,16 +21,16 @@ int main()
     string str;
     getline(cin, str);
 
-    int ans = INT_MIN;
+    int maxCount = INT_MIN;
     int count = 0, endIndex = -1;
 
     for (int i = 0; i < str.size(); i++)
     {
         if (str[i] == ' ')
         {
-            if (count > ans)
+            if (count > maxCount)
             {
-                ans = count;
+                maxCount = count;
                 endIndex = i - 1;
             }
             count = 0;
@@ -38,19 +38,23 @@ int main()
         else
             count++;
     }
-    if (count > ans)
+    if (count > maxCount)
     {
-        ans = count;
+        maxCount = count;
         endIndex = str.size() - 1;
     }
 
-    string ansString;
-    while (str[endIndex] != ' ' && endIndex >= 0)
-    {
-        ansString.push_back(str[endIndex]);
-        endIndex--;
-    }
-    reverse(ansString.begin(), ansString.end());
-    cout << ansString;
+    string maxCountString;
+
+    maxCountString = str.substr((endIndex - maxCount) + 1, maxCount);
+
+    // while (str[endIndex] != ' ' && endIndex >= 0)
+    // {
+    //     maxCountString.push_back(str[endIndex]);
+    //     endIndex--;
+    // }
+    // reverse(maxCountString.begin(), maxCountString.end());
+    cout
+        << maxCountString;
     return 0;
 }
